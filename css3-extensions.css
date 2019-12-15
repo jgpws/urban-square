@@ -1,0 +1,25 @@
+/* Vendor specific prefixes for older browser compatibility */
+
+[class^="icon-"], [class*=" icon-"] {
+/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.desktop a:link,
+.desktop a:visited {
+	-webkit-transition-property: background-color, color;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: linear;
+	-webkit-transition-delay: 0s;
+	
+	-moz-transition-property: background-color, color;
+	-moz-transition-duration: 0.5s;
+	-moz-transition-timing-function: linear;
+	-moz-transition-delay: 0s;
+	
+	-o-transition-property: background-color, color;
+	-o-transition-duration: 0.5s;
+	-o-transition-timing-function: linear;
+	-o-transition-delay: 0s;
+}

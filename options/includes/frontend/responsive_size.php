@@ -1,9 +1,9 @@
-<?php			
+<?php
 if( get_header_image() != '' ) {
 	$enqueue_main_style;
 	$header_css = '
 .header {
-	background-image: url(' . $header_image . ');
+	background-image: url(' . esc_url( $header_image ) . ');
 }
 
 @media ( min-width: 48em ) { /* tablets and up = ~768px+ */
@@ -14,11 +14,11 @@ if( get_header_image() != '' ) {
 	wp_add_inline_style( 'urban-square-main-stylesheet', $header_css );
 } else {
 	$enqueue_main_style;
-	$header_css = '	
+	$header_css = '
 /* No header image present */';
 				wp_add_inline_style( 'urban-square-main-stylesheet', $header_css );
 }
-				
+
 if( $header_2xbg != '' ) {
 	$enqueue_main_style;
 	$header_css .= '
@@ -28,11 +28,11 @@ if( $header_2xbg != '' ) {
 (min-device-pixel-ratio: 1.5),
 (min-resolution: 144dpi) {
 	.header {
-		background-image: url(' . $header_2xbg . ');
+		background-image: url(' . esc_url( $header_2xbg ) . ');
 	}';
 	wp_add_inline_style( 'urban-square-main-stylesheet', $header_css );
 }
-			
+
 if( get_header_textcolor() != '' ) {
 	$enqueue_main_style;
 	$header_textcolor_css = '
@@ -42,10 +42,10 @@ if( get_header_textcolor() != '' ) {
 }';
 	wp_add_inline_style( 'urban-square-main-stylesheet', $header_textcolor_css );
 }
-			
+
 if ( 'blank' == get_header_textcolor() ) {
 	$enqueue_main_style;
-	$header_textcolor_css .= '	
+	$header_textcolor_css .= '
 .header__site-title-link:link,
 .header__site-title-link:visited {
 	position: absolute;
@@ -57,11 +57,11 @@ if ( 'blank' == get_header_textcolor() ) {
 .header__site-title-link--landing:visited {
 	position: static;
 }
-		
+
 .header__site-description {
 	text-indent: -9999px;
 }
-		
+
 @media ( min-width: 48em ) { /* tablets and up = ~768px+ */
 	.header__button-panel {
 		clear: left;
@@ -81,4 +81,3 @@ if ( 'blank' == get_header_textcolor() && has_custom_logo() ) {
 }';
 	wp_add_inline_style( 'urban-square-main-stylesheet', $header_textcolor_css );
 }
-?>

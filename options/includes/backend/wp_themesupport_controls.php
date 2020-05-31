@@ -18,44 +18,44 @@ add_theme_support( 'custom-header', $args );
 // http://code.tutsplus.com/articles/modifying-custom-background-feature-for-any-html-element-you-want--wp-25901
 function urban_square_custombg_callback() {
 	$background = get_background_image();
-	$hidef_background = esc_url( get_theme_mod( 'background_2xbg_upload' ) );
+	$hidef_background = get_theme_mod( 'background_2xbg_upload' );
 	$color = get_background_color();
-	
+
 	if( !$background && !$color ) {
 		return;
 	}
-	
+
 	$style = $color ? "background-color: #$color;" : '';
-	
+
 	if( $background ) {
-		$image = " background-image: url(' $background ');";
-		
-		$hidef_image = " background-image: url(' $hidef_background ');";
-		
+		$image = ' background-image: url(' . esc_url( $background ) . ');';
+
+		$hidef_image = ' background-image: url(' . esc_url( $hidef_background ) . ');';
+
 		$repeat = get_theme_mod( 'background_repeat', 'repeat' );
 		if( !in_array( $repeat, array( 'no-repeat', 'repeat-x', 'repeat-y', 'repeat' ) ) ) {
 			$repeat = 'repeat';
 		}
 		$repeat = " background-repeat: $repeat;";
-		
-		$position = get_theme_mod( 'background-position-x', 'left' );
+
+		$position = get_theme_mod( 'background_position', 'left' );
 		if( !in_array( $position, array( 'center', 'right', 'left' ) ) ) {
 			$position = 'left';
 		}
 		$position = " background-position: top $position;";
-		
-		$attachment = get_theme_mod( 'background-attachment', 'scroll' );
-		if ( ! in_array( $attachment, array( 'fixed', 'scroll' ) ) ) {
+
+		$attachment = get_theme_mod( 'background_attachment', 'scroll' );
+		if ( !in_array( $attachment, array( 'fixed', 'scroll' ) ) ) {
 			$attachment = 'scroll';
 		}
 		$attachment = " background-attachment: $attachment;";
-		
+
 		$style .= $image . $repeat . $position . $attachment;
-		
+
 		$style2x = $hidef_image . $repeat . $position . $attachment;
 	} ?>
 <style type="text/css">
-body.custom-background { <?php echo trim( $style ); ?> }
+body.custom-background { <?php echo esc_html( trim( $style ) ); ?> }
 
 <?php if ( $hidef_background != '' ) { ?>
 @media (-webkit-min-device-pixel-ratio: 1.5),
@@ -64,7 +64,7 @@ body.custom-background { <?php echo trim( $style ); ?> }
 (min-device-pixel-ratio: 1.5),
 (min-resolution: 144dpi) {
 	body.custom-background {
-		<?php echo trim( $style2x ); ?>
+		<?php echo esc_html( trim( $style2x ) ); ?>
 		background-size: 50%;
 	}
 }

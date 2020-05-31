@@ -1,6 +1,6 @@
 <?php
-	$enqueue_main_style;
-	$serif2_css = '
+// CSS code for Old Standard custom font in the Block
+$css .= '
 @font-face {
 font-family: "playfair_display_regular";
 	src: url(' . $stylesheet_directory . '/fonts/playfairdisplay-regular-webfont.eot);
@@ -43,46 +43,44 @@ font-family: "playfair_display_bold";
 	--font-italic: playfair_display_italic, serif;
 }
 
+.editor-post-title__block .editor-post-title__input {
+	font-family: var(--font-bold);
+	font-variant: small-caps;
+}
+
 .wp-block-calendar table {
 	font-family: var(--font-family);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.header__site-title {
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
 	font-variant: small-caps;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p strong,
-p b,
-dl dt,
-table caption,
-table th,
-.header__site-title,
-.header__menu-label,
-.header__site-nav-label {
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6,
+.editor-styles-wrapper p strong,
+.editor-styles-wrapper p b,
+.editor-styles-wrapper dl dt,
+.editor-styles-wrapper table caption,
+.editor-styles-wrapper table th {
 	font-family: var(--font-bold);
 }
 
-em,
-cite,
-blockquote,
-q,
-dl dd,
-.header__site-description,
-.post__meta,
+.editor-styles-wrapper em,
+.editor-styles-wrapper cite,
+.editor-styles-wrapper blockquote,
+.editor-styles-wrapper q,
+.editor-styles-wrapper dl dd,
 .wp-caption-text,
 .gallery-caption {
 	font-family: var(--font-italic);
 }';
-	wp_add_inline_style( 'urban-square-main-stylesheet', $serif2_css );

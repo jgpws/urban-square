@@ -3,7 +3,7 @@
 
 <footer id="footer" role="contentinfo" class="footer header-footer-bgcolor">
 <!-- Back to Top link placed here; not in the loop -->
-	<a href="#" class="back-to-top"><?php _e( 'Back to Top', 'urban-square' ) ?></a>
+	<a href="#" class="back-to-top"><?php esc_html_e( 'Back to Top', 'urban-square' ) ?></a>
 
 	<?php if( is_active_sidebar( 'footer-widget-area' ) ) { ?>
 		<ul class="footer__widgets xoxo">

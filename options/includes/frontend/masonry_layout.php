@@ -35,7 +35,7 @@ body.search article {
 	margin: 0 0 1em;
 	padding: 1em;
 	width: 100%;
-	border: 1px solid '. $supporting_border_color . ';
+	border: 1px solid '. esc_attr( $supporting_border_color ) . ';
 	box-sizing: border-box;
 	overflow-x: hidden;
 }
@@ -171,7 +171,7 @@ body.search .alignfull {
 		position: static;
 		left: 0;
 	}
-	
+
 	body.blog .container,
 	body.archive .container,
 	body.search .container {
@@ -194,7 +194,7 @@ body.search .alignfull {
    	padding: 1em;
    	width: 50%;
 	}
-	
+
 	body.blog .sidebar__widgets-container,
 	body.archive .sidebar__widgets-container,
 	body.search .sidebar__widgets-container {
@@ -238,4 +238,3 @@ body.search .alignfull {
 	}
 }';
 	wp_add_inline_style( 'urban-square-main-stylesheet', $masonry_css );
-?>

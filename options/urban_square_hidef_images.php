@@ -3,7 +3,7 @@
 /* Taken from the article and code in Ensuring Your Theme Has Retina Support by C. Bavota */
 /* http://code.tutsplus.com/tutorials/ensuring-your-theme-has-retina-support--wp-33430 */
 
-if( get_theme_mod( 'enable_retina' ) == 1 ) { // opens if statement
+if( get_theme_mod( 'urban_square_enable_retina', 0 ) == 1 ) { // opens if statement
 // enable these functions only if user has turned on retina capability in the Customizer
 	add_filter( 'wp_generate_attachment_metadata', 'urban_square_retina_sppt_att_meta', 10, 2 );
 	/**
@@ -12,7 +12,7 @@ if( get_theme_mod( 'enable_retina' ) == 1 ) { // opens if statement
 	* This function is attached to the 'wp_generate_attachment_metadata' filter hook.
 	*/
 	// abbreviated: sppt- support; att- attachment; imgs- images; del- delete
-	function urban_square_retina_sppt_att_meta( $metadata, $attachment_id ) { 
+	function urban_square_retina_sppt_att_meta( $metadata, $attachment_id ) {
 		foreach ( $metadata as $key => $value ) {
 			if( is_array( $value ) ) {
 				foreach ( $value as $image => $attr ) {
@@ -24,7 +24,7 @@ if( get_theme_mod( 'enable_retina' ) == 1 ) { // opens if statement
 		}
 		return $metadata;
 	}
-	
+
 	/**
 	* Create retina-ready images
 	*
@@ -35,12 +35,12 @@ if( get_theme_mod( 'enable_retina' ) == 1 ) { // opens if statement
 			$resized_file = wp_get_image_editor( $file );
 			if( !is_wp_error( $resized_file ) ) {
 				$filename = $resized_file->generate_filename( $width . 'x' . $height . '@2x' );
-				
+
 				$resized_file->resize( $width * 2, $height * 2, $crop );
 				$resized_file->save( $filename );
-				
+
 				$info = $resized_file->get_size();
-				
+
 				return array(
 					'file' => wp_basename( $filename ),
 					'width' => $info['width'],
@@ -50,7 +50,7 @@ if( get_theme_mod( 'enable_retina' ) == 1 ) { // opens if statement
 		}
 		return false;
 	}
-	
+
 	add_filter( 'delete_attachment', 'urban_square_del_retina_sppt_imgs' );
 	/**
 	* Delete retina-ready images
@@ -74,4 +74,3 @@ if( get_theme_mod( 'enable_retina' ) == 1 ) { // opens if statement
 		}
 	}
 } // closes if statement
-?>

@@ -6,7 +6,7 @@
 /* The HideShowWP script was created as part of this theme */
 /* The license for this script is GNU General Public License */
 /* https://www.gnu.org/licenses/gpl.html */
- 
+
 // define variables to hold data
 	var windowWidth;
 
@@ -21,7 +21,7 @@
 	var menuChildrenLink = ".menu--header .children .page_item a";
 	var customMenuChildrenLink = ".menu--header .sub-menu .menu__anchor--header";
 	var menuDownArrow = ".menu--header .fa-caret-down";
-	
+
 	var widgetTitle = ".widget__title--collapsible";
 	var widget = ".widget--sidebar > ul";
 	var widgetDiv = ".widget--sidebar div";
@@ -36,16 +36,18 @@
 	var widgetTagCloud = ".widget--sidebar .tagcloud";
 	var widgetDownArrow = ".widget--sidebar .fa-caret-down";
 
+  var widgetWC = ".widget--sidebar .widget.woocommerce";
+
 	// Setup our initial state in the browser; If this is not set, hidden objects will not be hidden until resizing happens.
 	windowWidth = $( window ).width();
 
 	function menuWidgetsInit() {
 		$( menuChildren ).hide(); // hide menu children onload in all screen sizes
 		$( customMenuChildren ).hide();
-	
+
 		// Desktop size begins at 1025px to exclude tablets in landscape
-		if ( 	windowWidth <= 1024 || 
-				usScriptParams.layouts === 'masonry' && !$( 'body' ).hasClass( 'single' ) && !$( 'body' ).hasClass( 'page' ) || 
+		if ( 	windowWidth <= 1024 ||
+				usScriptParams.layouts === 'masonry' && !$( 'body' ).hasClass( 'single' ) && !$( 'body' ).hasClass( 'page' ) ||
 				usScriptParams.layouts === 'grid' && !$( 'body' ).hasClass( 'single' ) && !$( 'body' ).hasClass( 'page' ) ) {
 			$( widget ).hide();
 			// These widgets have optional titles; the widgets must be shown if there are no titles and dropdown buttons on load.
@@ -71,13 +73,14 @@
 			}
 			$( widgetTagCloud ).hide();
 			$( widgetSelect ).hide();
+      $( widgetWC ).hide();
 			$( menu ).hide();
 		}
-	
+
 		// Change cursor above site navigation link
 		$( siteNavTitle ).css( "cursor", "pointer" );
 	}
-	
+
 	function appendButtons() {
 		// Place arrow icon font next to title dropdowns
 		// Place menu icon in Menu title and place Site Nav icon in "Go to site navigation" link
@@ -87,18 +90,18 @@
 		$( hasChildrenLink ).after("<button class=\"button button--header-submenu fas fa-caret-down\" title=\"Click or Tab and Press Enter to Open/Close Submenu\"></button>"); // add arrow icon
 		$( customHasChildrenLink ).after( "<button class=\"button button--header-submenu fas fa-caret-down\" title=\"Click or Tab and Press Enter to Open/Close Submenu\"></button>" );
 	}
-	
+
 	function toggleMenusWidgets() {
 		// Toggle menu
 		$( menuButton ).click( function() {
 			$( menu ).slideToggle( "slow" );
 		});
-		
+
 		// Toggle on click for menu down arrow icon
-		$( menuDownArrow ).click( function() { 
+		$( menuDownArrow ).click( function() {
 			$(this).next().slideToggle( "slow" ); // this = .button--header-submenu; next = .children/.sub-menu
 		});
-		
+
 		// Toggle widgets when down arrow is clicked
 		$( widgetDownArrow ).click( function() {
 			$(this).closest( "li" ).find( "ul" ).slideToggle( "slow" ); // this = .widget-container .icon-sort-desc
@@ -107,24 +110,25 @@
 			$(this).closest( "li" ).find( ".search__form" ).slideToggle( "slow" );
 			$(this).closest( "li" ).find( ".tagcloud" ).slideToggle( "slow" );
 			$(this).closest( "li" ).find( ".textwidget" ).slideToggle( "slow" );
+      $(this).closest( "li" ).find( ".widget_shopping_cart_content" ).slideToggle( "slow" );
 			// using this selects one widget title at a time.
 			//console.log($(this));
 		});
 	}
-	
+
 	function resizeMenusWidgets() {
 		var docWidth = $( document ).width();
 		if ( docWidth < 1025 ) {
 			//console.log( docWidth );
 			$( menu ).slideUp( "slow" );
 			$( widget ).slideUp( "slow" );
-			
+
 			if ( $( '.widget_calendar .widget__title--collapsible' ).length > 0 ) {
 				$( widgetCalendar ).slideUp( "slow" );
 			} else {
 				$( widgetCalendar ).slideDown( "slow" );
 			}
-			
+
 			if( $( '.widget_search .widget__title--collapsible' ).length > 0 ) {
 				$( widgetSearch ).slideUp( "slow" );
 				//console.log( "Search slid up" );
@@ -132,35 +136,35 @@
 				$( widgetSearch ).slideDown( "slow" );
 				//console.log( "Search slid down" );
 			}
-			
+
 			$( widgetSelect ).slideUp( "slow" );
 			$( widgetText ).slideUp( "slow" );
-			
+
 		} else {
-			
+
 			if ( $( "body" ).hasClass( "masonry" ) || $( "body" ).hasClass( "grid" ) ) {
 				$( ".masonry " + menu ).slideUp( "slow" );
 				$( ".grid " + menu ).slideUp( "slow" );
 				$( ".masonry " + widget ).slideUp( "slow" );
 				$( ".grid " + widget ).slideUp( "slow" );
-				
+
 				if ( $( ".masonry .widget_calendar .widget__title--collapsible" ).length > 0 || $( ".grid .widget_calendar .widget__title--collapsible" ).length > 0 ) {
 					$( ".masonry " + widgetCalendar ).slideUp( "slow" );
 					$( ".grid " + widgetCalendar ).slideUp( "slow" );
 				} else {
 					$( widgetCalendar ).slideDown( "slow" );
 				}
-				
+
 				if( $( '.masonry .widget_search .widget__title--collapsible' ).length > 0 || $( '.grid .widget_search .widget__title--collapsible' ).length > 0 ) {
 				$( ".masonry " + widgetSearch ).slideUp( "slow" );
 				$( ".grid " + widgetSearch ).slideUp( "slow" );
-				
+
 				} else {
 					$( widgetSearch ).slideDown( "slow" );
 				}
 				$( widgetSelect ).slideUp( "slow" );
 				$( widgetText ).slideUp( "slow" );
-				
+
 			} else {
 				$( menu ).slideDown( "slow" );
 				$( widget ).slideDown( "slow" );
@@ -168,22 +172,22 @@
 				$( widgetSelect ).slideDown( "slow" );
 				$( widgetText ).slideDown( "slow" );
 			}
-			
+
 		}
 	}
-	
+
 	// To test the above for accessibility, press Enter or Return when tabbing over the down arrow buttons
-	
+
 	function menuWidgetsFocus() {
 		// Hide menu children after last child link loses focus
-		$( menuChildrenLink ).last().blur( function() { 
+		$( menuChildrenLink ).last().blur( function() {
 			$( menuChildren ).hide();
 		});
-		
-		$( customMenuChildrenLink ).last().blur( function() { 
+
+		$( customMenuChildrenLink ).last().blur( function() {
 			$( customMenuChildren ).hide();
 		});
-		
+
 		// Hide entire menu when last top level link loses focus
 		// only in tablet size and under
 		if ( windowWidth <= 1024 ) {
@@ -191,7 +195,7 @@
 				$( menu ).hide();
 			});
 		}
-		
+
 		// Hide when last widget link has lost focus
 		if ( windowWidth <= 1024 ) {
 			$( widgetLink ).last().blur( function() {
@@ -200,25 +204,25 @@
 			});
 		}
 	}
-	
-	/*$( window ).on( 'resize', function() { 
+
+	/*$( window ).on( 'resize', function() {
 		menuWidgetsInit();
 		console.log( "menu and widgets resized." );
 	} );*/
-	
+
 	// Load essential functions on page load
 	menuWidgetsInit();
 	appendButtons();
 	toggleMenusWidgets();
 	menuWidgetsFocus();
-	
+
 	var resizeId;
-	
+
 	$( window ).resize( function() {
 		clearTimeout( resizeId );
 		setTimeout( resizeMenusWidgets, 500 );
 	} );
-	
+
 /* --- --- */
 
 /* --- backToTop.js --- */
@@ -253,10 +257,10 @@ http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 
 	// Find all YouTube videos
 		var $allVideos = $("iframe[src^='http://www.youtube.com'], iframe[src^='https://www.youtube.com'], iframe[src^='http://player.vimeo.com'], object, embed"),
-	
+
 			// The element that has fluid width; change this value to the parent container of the video in your theme
 			$fluidEl = $('.post__content');
-		
+
 		// Figure out and save aspect ratio for each video
 		$allVideos.each(function() {
 
@@ -264,28 +268,28 @@ http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 			// jQuery .data does not work on object/embed elements
 			//.data('aspectRatio', this.height/this.width)
 			.attr('data-aspectRatio', this.height / this.width)
-		
+
 			// and remove the hard coded width/height
 			.removeAttr('height')
 			.removeAttr('width');
-	
+
 		});
-	
+
 		// When the window is resized
 		$(window).resize(function() { // opens window resize function
-		
+
 			var newWidth = $fluidEl.width();
-		
+
 			// Resize all videos according the their own aspect ratio
 			$allVideos.each(function() {
-		
+
 				var $el = $(this);
 				$el
 					.width(newWidth)
 					.height(newWidth * $el.attr('data-aspectRatio'));
-		
+
 			});
-		
+
 		}).resize(); // closes window resize function
 /* --- --- */
 

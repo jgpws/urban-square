@@ -24,7 +24,7 @@ body.search .alignfull {
 body.blog article,
 body.archive article,
 body.search article {
-	border: 1px solid '. $supporting_border_color . ';
+	border: 1px solid '. esc_attr( $supporting_border_color ) . ';
 	box-sizing: border-box;
 	display: inline-block;
 	margin-bottom: 1em;
@@ -33,7 +33,7 @@ body.search article {
 	position: relative;
 	text-align: left;
 	vertical-align: top;
-	
+
 }
 
 body.blog article,
@@ -75,8 +75,8 @@ h1, h2, h3, h4, h5, h6, a {
 		width: 48%;
 		min-height: 30em;
 	}
-}	
-		
+}
+
 @media ( min-width: 64.063em ) { /* desktop = ~1025px */
 	body.blog .button--header-menu,
 	body.archive .button--header-menu,
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6, a {
 		position: static;
 		left: 0;
 	}
-	
+
 	body.blog .button--header-site-nav,
 	body.archive .button--header-site-nav,
 	body.search .button--header-site-nav {
@@ -98,13 +98,13 @@ h1, h2, h3, h4, h5, h6, a {
 		margin: 0 1% 1em 1%;
 		width: 31.33%;
 	}
-	
+
 	body.blog .container,
 	body.archive .container,
 	body.search .container {
 		grid-template-columns: 1fr 75% 1fr;
 	}
-	
+
 	body.blog .sidebar,
 	body.archive .sidebar,
 	body.search .sidebar {
@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, h6, a {
 		padding-top: 1em;
 		width: 100%;
 	}
-	
+
 	body.blog .widget--sidebar,
 	body.archive .widget--sidebar,
 	body.search .widget--sidebar {
@@ -121,13 +121,13 @@ h1, h2, h3, h4, h5, h6, a {
    	padding: 1em;
    	width: 50%;
 	}
-	
+
 	body.blog .sidebar__widgets-container,
 	body.archive .sidebar__widgets-container,
 	body.search .sidebar__widgets-container {
   		flex-direction: row;
 	}
-	
+
 	body.blog .back-to-top,
 	body.archive .back-to-top,
 	body.search .back-to-top {
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6, a {
 	body.search article {
 		width: 23%;
 	}
-	
+
 	body.blog .sidebar__widgets-container,
 	body.archive .sidebar__widgets-container,
 	body.archive .sidebar__widgets-container {
@@ -155,4 +155,3 @@ h1, h2, h3, h4, h5, h6, a {
 	}
 }';
 	wp_add_inline_style( 'urban-square-main-stylesheet', $grid_layout );
-?>

@@ -17,18 +17,18 @@
 	wp.customize( 'background_color', function( value ) {
 		value.bind( function( to ) {
 			$( 'body' ).css( 'background-color', to );
-			$( 'body.custom-background .menu--header .current_page_item a:link, body.custom-background .menu--header .current_page_item a:visited, body.custom-background .menu--header .current_page_item .icon-sort-desc' ).css( 'background-color', to );
+			$( 'body.custom-background .menu--header .current_page_item a:link, body.custom-background .menu--header .current_page_item a:visited, body.custom-background .menu--header .current_page_item .button--header-submenu' ).css( 'background-color', to );
 		} );
 	} );
 
 	// Other colors
-	wp.customize( 'header_footer_bgcolor', function( value ) {
+	wp.customize( 'urban_square_header_footer_bgcolor', function( value ) {
 		value.bind( function( to ) {
 			$( '.wrapper .header-footer-bgcolor' ).css( 'background-color', to );
 		} );
 	} );
 
-	wp.customize( 'link_color', function( value ) {
+	wp.customize( 'urban_square_link_color', function( value ) {
 		value.bind( function( to ) {
 			$( 'article a:link, article a:visited, .menu--header a:link, .menu--header a:visited, #comments a:link, #comments a:visited' ).css( 'color', to );
 			$( '.post__edit-link:link, .post__edit-link:visited' ).addClass( 'white-text' );
@@ -37,7 +37,7 @@
 		} );
 	} );
 
-	wp.customize( 'supporting_color', function( value ) {
+	wp.customize( 'urban_square_supporting_color', function( value ) {
 		value.bind( function( to ) {
 			$( 'button, input[type="reset"], input[type="submit"], .header__panel .supporting-bgcolor, .content .supporting-bgcolor a:link, .content .supporting-bgcolor a:visited, .sidebar .supporting-bgcolor, .sidebar .button--widget, .page-numbers, .comment-reply-link:link, .comment-reply-link:visited, #wp-calendar tr th, #wp-calendar td a' ).css( 'background-color', to );
 			$( '.search__field' ).css( { 'border' : '1px solid' + to } );
@@ -50,7 +50,7 @@
 		} );
 	} );
 
-	wp.customize( 'menu_widgets_bgcolor', function( value ) {
+	wp.customize( 'urban_square_menu_widgets_bgcolor', function( value ) {
 		value.bind( function( to ) {
 			$( '.menu--header, .menu--header .page_item a:link, .menu--header .page_item a:visited, .menu__anchor--header:link, .menu__anchor--header:visited, .button--header-submenu, .menu--header .children, .menu--header .sub-menu, .sidebar__widget-area, .footer__widgets' ).css( 'background-color', to );
 			var windowWidth = $( window ).width();
@@ -60,7 +60,7 @@
 		} );
 	} );
 
-	wp.customize( 'supporting_border_color', function( value ) {
+	wp.customize( 'urban_square_supporting_border_color', function( value ) {
 		value.bind( function( to ) {
 			$( '.sidebar__widget-area' ).css( { 'border-bottom-color' : to } );
 			var windowWidth = $( window ).width();
@@ -83,7 +83,7 @@
 		} );
 	} );
 
-	wp.customize( 'everything_else_bgcolor', function( value ) {
+	wp.customize( 'urban_square_everything_else_bgcolor', function( value ) {
 		value.bind( function( to ) {
 			$( 'blockquote, q, pre, table tbody, .sticky, .bypostauthor .comment-author, #commentform, #wp-calendar, #wp-calendar tbody' ).css( 'background-color', to );
 			$( '.wp-block-pullquote blockquote' ).css( 'background-color', 'transparent' );
@@ -97,7 +97,7 @@
 	'.black-text { color: #333333 !important; }' +
 	'</style>' );
 
-	wp.customize( 'reverse_textcolor', function( value ) {
+	wp.customize( 'urban_square_reverse_textcolor', function( value ) {
 		value.bind( function( to ) {
 			if( to === true ) {
 				$( '.header__site-description' ).addClass( 'white-text' ).removeClass( 'black-text' );
@@ -115,17 +115,17 @@
 		} );
 	} );
 
-	wp.customize( 'reverse_menu_linkcolor', function( value ) {
+	wp.customize( 'urban_square_reverse_menu_linkcolor', function( value ) {
 		value.bind( function( to ) {
 			if( to === true ) {
-				$( '.menu--header .page_item a, .menu__anchor--header, .widget ul li a, .footer__widgets a' ).addClass( 'black-text' );
+				$( '.menu--header .page_item a, .menu__anchor--header, .widget a:link, .widget a:visited, .footer__widgets a' ).addClass( 'black-text' );
 			} else {
-				$( '.menu--header .page_item a, .menu__anchor--header, .widget ul li a, .footer__widgets a' ).removeClass( 'black-text' );
+				$( '.menu--header .page_item a, .menu__anchor--header, .widget a:link, .widget a:visited, .footer__widgets a' ).removeClass( 'black-text' );
 			}
 		} );
 	} );
 
-	wp.customize( 'reverse_menu_linkcolor_white', function( value ) {
+	wp.customize( 'urban_square_reverse_menu_linkcolor_white', function( value ) {
 		value.bind( function( to ) {
 			if( to === true ) {
 				$( '.menu--header .page_item a, .menu__anchor--header, .widget ul li a, .tag-cloud-link:link, .tag-cloud-link:visited, .footer__widgets a' ).addClass( 'white-text' ).removeClass( 'black-text' );
@@ -140,7 +140,7 @@
 		} );
 	} );
 
-	wp.customize( 'reverse_supporting_color', function( value ) {
+	wp.customize( 'urban_square_reverse_supporting_color', function( value ) {
 		value.bind( function( to ) {
 			if( to === true ) {
 				$( '.search .reverse-supporting-color, .header__button-panel .reverse-supporting-color, .sidebar .reverse-supporting-color, .content .reverse-supporting-color a:link, .content .reverse-supporting-color a:visited, .comment-reply-link:link, .comment-reply-link:visited, #wp-calendar tr th, #wp-calendar td a, .widget__title--collapsible .rsswidget' ).addClass( 'black-text' );
@@ -152,13 +152,13 @@
 		} );
 	} );
 
-	wp.customize( 'reverse_everything_textcolor', function( value ) {
+	wp.customize( 'urban_square_reverse_everything_textcolor', function( value ) {
 		value.bind( function( to ) {
 			if( to === true ) {
-				$( 'blockquote, q, table, tbody, pre, body .sticky, body #commentform, body .bypostauthor .comment-author' ).addClass( 'black-text' );
+				$( 'blockquote, q, table, tbody, pre, body .sticky, body .sticky a:link, body .sticky a:visited, body #commentform, body .bypostauthor .comment-author' ).addClass( 'black-text' );
 				$( '.content table caption, .content table thead' ).addClass( 'white-text' ).removeClass( 'black-text' );
 			} else {
-				$( 'blockquote, q, table, tbody, pre, body .sticky, body #commentform, body .bypostauthor .comment-author' ).removeClass( 'black-text' );
+				$( 'blockquote, q, table, tbody, pre, body .sticky, body .sticky a:link, body .sticky a:visited, body #commentform, body .bypostauthor .comment-author' ).removeClass( 'black-text' );
 				$( '.content table caption, .content table thead' ).removeClass( 'white-text' ).addClass( 'black-text' );
 			}
 		} );

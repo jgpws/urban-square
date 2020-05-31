@@ -1,10 +1,9 @@
-<?php if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) return; ?>
 <section id="comments">
-<?php 
-if ( have_comments() ) : 
+<?php
+if ( have_comments() ) :
 	global $comments_by_type;
 	$comments_by_type = &separate_comments( $comments );
-	if ( ! empty( $comments_by_type['comment'] ) ) : 
+	if ( ! empty( $comments_by_type['comment'] ) ) :
 ?>
 		<section id="comments-list" class="comments__list">
 			<h3 class="comments__title comments__title--comments"><?php comments_number(); ?></h3>
@@ -22,17 +21,17 @@ if ( have_comments() ) :
 				</nav>
 			<?php endif; ?>
 		</section>
-	<?php endif; 
-	if ( ! empty( $comments_by_type['pings'] ) ) : 
-		$ping_count = count( $comments_by_type['pings'] ); 
+	<?php endif;
+	if ( ! empty( $comments_by_type['pings'] ) ) :
+		$ping_count = count( $comments_by_type['pings'] );
 	?>
 		<section id="trackbacks-list" class="comments__list comments__list--trackbacks">
-			<h3 class="comments__title"><?php echo '<span class="comments__ping-count">' . $ping_count . '</span> ' . ( $ping_count > 1 ? __( 'Trackbacks', 'urban-square' ) : __( 'Trackback', 'urban-square' ) ); ?></h3>
+			<h3 class="comments-title"><?php echo '<span class="ping-count">' . esc_html( $ping_count ) . '</span> ' . esc_html( _nx( 'Trackback or Pingback', 'Trackbacks and Pingbacks', $ping_count, 'comments count', 'urban-square' ) ); ?></h3>
 			<ul>
 				<?php wp_list_comments( 'type=pings&callback=urban_square_custom_pings' ); ?>
 			</ul>
 		</section>
-	<?php endif; 
+	<?php endif;
 endif;
 if ( comments_open() ) comment_form();
 ?>

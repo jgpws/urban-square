@@ -4,7 +4,7 @@
 	<div id="primary" class="sidebar__widget-area">
 		<ul class="sidebar__widgets-container xoxo">
 			<li id="calendar" class="widget widget--sidebar supporting-secondary-color">
-				<h3 class="widget__title widget__title--collapsible supporting-bgcolor reverse-supporting-color"><?php _e( 'Calendar', 'urban-square' ); ?></h3>
+				<h3 class="widget__title widget__title--collapsible supporting-bgcolor reverse-supporting-color"><?php esc_html_e( 'Calendar', 'urban-square' ); ?></h3>
 				<div id="calendar_wrap" class="calendar_wrap">
 					<?php get_calendar(); ?>
 				</div>
@@ -14,7 +14,7 @@
 				<?php
 
 				$instance = array(
-					'title' => __( 'Recent Posts', 'urban-square' )
+					'title' => esc_html__( 'Recent Posts', 'urban-square' )
 				);
 
 				$args = array(

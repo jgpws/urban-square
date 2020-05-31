@@ -28,7 +28,33 @@ function urban_square_customizer( $wp_customize ) { //opens function
 } // closes function
 add_action( 'customize_register', 'urban_square_customizer' );
 
+/* Customize Preview */
+function urban_square_preview_js() {
+	wp_enqueue_script( 'us_customizer_preview', get_template_directory_uri() . '/scripts/us-customizer-preview.js', array( 'customize-preview', 'jquery' ), '', true );
+}
+
+add_action( 'customize_preview_init', 'urban_square_preview_js' );
+
+/* Customizer Controls JavaScript */
+function urban_square_customizer_controls_js() {
+	wp_enqueue_script( 'urban-square-customizer-controls', get_template_directory_uri() . '/scripts/customize-controls.js', array( 'jquery' ), '', true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'urban_square_customizer_controls_js' );
+
 /* Sanitization Callbacks */
+function u_s_sanitize_colors_switcher( $input ) {
+	$valid = array(
+		'standard' => __( 'Standard Color Scheme', 'urban-square' ),
+		'custom' => __( 'Custom Color Scheme', 'urban-square' ),
+	);
+
+	if ( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+}
+
 function u_s_sanitize_image_type( $input ) {
 	$valid = array(
 		'responsive' => __( 'Responsive (rectangular horizontal image)', 'urban-square' ),
@@ -102,11 +128,3 @@ function u_s_sanitize_footerhtml( $input ) {
 function u_s_no_sanitize() {
 	return '';
 }
-
-/* Enqueue javascript for live preview (postMessage) */
-function urban_square_preview_js() {
-	wp_enqueue_script( 'us_customizer_preview', get_template_directory_uri() . '/scripts/us-customizer-preview.js', array( 'customize-preview', 'jquery' ), '', true );
-}
-
-add_action( 'customize_preview_init', 'urban_square_preview_js' );
-?>

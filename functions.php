@@ -4,7 +4,7 @@ add_action( 'after_setup_theme', 'urban_square_setup' );
 function urban_square_setup() {
 	load_theme_textdomain( 'urban-square', get_template_directory() . '/languages' );
 	add_theme_support( 'automatic-feed-links' );
-	add_theme_support( 'html5', 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' );
+	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'gallery', 'caption' ) );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'custom-logo' );

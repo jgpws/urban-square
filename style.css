@@ -4,7 +4,7 @@ Theme URI: http://www.jasong-designs.com/2015/03/04/urban-square/
 Author: Jason G. Designs
 Author URI: http://jasong-designs.com
 Description: Urban Square is a theme based on a BlankSlate core. With this theme, your template will no longer have to look like anyone else's. You can change the header image, logo, background image and colors behind the background, header/footer/sidebar, menus and widgets. Urban Square is high definition ready, providing retina.js on option for inline images and an image upload for @2x backgrounds. The Header Image section in the Customizer has additions that let you choose two display modes for header images: Responsive- where images stretch with the browser window and Repeating- for simple repeating textures/patterns. Version 1.6 is now compatible with Gutenberg/WP 5.0.
-Version: 1.7.2
+Version: 1.7.3
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: two-columns, custom-logo, custom-menu, featured-images, microformats, sticky-post, threaded-comments, translation-ready, custom-background, custom-header, custom-colors, right-sidebar
@@ -132,6 +132,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .gallery-item {
 	width: 100%;
 	text-align: center;
+}
+
+.gallery-item img {
+	margin: 1em 0;
 }
 /* */
 
@@ -296,6 +300,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	margin-right: calc(25% - 25vw);
 	max-width: 1000%;
 	width: auto;
+}
+
+.alignfull,
+.alignwide {
+	clear: both;
 }
 
 .alignfull {

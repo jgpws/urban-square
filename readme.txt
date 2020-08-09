@@ -3,8 +3,8 @@
 Contributors: jgpws
 Tags: two-columns, custom-logo, custom-menu, featured-images, microformats, sticky-post, threaded-comments, translation-ready, custom-background, custom-header, custom-colors, right-sidebar
 Requires at least: 4.5
-Tested up to: 5.1.3
-Stable tag: 1.7.3
+Tested up to: 5.4
+Stable tag: 1.7.4
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -13,30 +13,33 @@ Urban Square is a theme based on a BlankSlate core. With this theme, your templa
 
 == Changelog ==
 
-== 1.7.3 2020-06-01 ==
+= 1.7.4 2020-08-08 =
+Added support for the wp_body_open tag.
+
+= 1.7.3 2020-06-01 =
 Fixed error in theme support for HTML 5 elements.
 
-== 1.7.2 2020-05-20 to 2020-05-30 ==
+= 1.7.2 2020-05-20 to 2020-05-30 =
 Continued support for the Block Editor including gradients; Code refactoring and value escaping.
 
-== 1.7.1 2019-12-01 ==
+= 1.7.1 2019-12-01 =
 * Oops! Forgot the new screenshot
 
-== 1.7.0 2019-11-28 to 2019-11-30 ==
+= 1.7.0 2019-11-28 to 2019-11-30 =
 * Added default widgets to the sidebar; Implemented CSS Grid beneath the content and sidebar container in order to create a new layout style with the sidebar directly next to the content. Adjusted JavaScript (jQuery) to make resize work correctly for menus and widgets. Added a new screenshot
 
-== 1.6.0 2018-12-07 to 2018-12-13 ==
+= 1.6.0 2018-12-07 to 2018-12-13 =
 * Fixed fluidvideo script to account for the new container class
 * Adjusted the layout in larger screen sizes to have a narrower content area (narrower paragraphs)
 * Added compatibility with Gutenberg/WP 5.0 with styling for most blocks, custom color palette and matching editor styling
 
-== 1.5.2 2018-12-03 ==
+= 1.5.2 2018-12-03 =
 * Fixed incorrect line-height for title in page, single templates
 
-== 1.5.1 2018-11-28 ==
+= 1.5.1 2018-11-28 =
 * Fixes for Customizer live preview JavaScript
 
-== 1.5.0 2018-11-17 to 2018-11-27 ==
+= 1.5.0 2018-11-17 to 2018-11-27 =
 * Added flexbox row wrapping to top menu in tablet size and up
 * Added a fallback pages menu for custom menus
 * Centered images in Attachment template

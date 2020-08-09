@@ -7,7 +7,8 @@
 <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class();
+wp_body_open(); ?>
 <div id="wrapper" class="wrapper" class="hfeed">
 <header id="header" role="banner" class="header header-footer-bgcolor">
 	<section id="branding" class="header__branding">
@@ -17,7 +18,7 @@
 			<?php
 				if ( ! is_singular() ) { echo '<h1 class="header__site-title">'; }
 				else { echo '<div class="header__site-title">'; } ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__site-title-link" title="<?php esc_html( get_bloginfo( 'name' ), 'urban-square' ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__site-title-link" title="<?php esc_attr( get_bloginfo( 'name' ), 'urban-square' ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
 			<?php if ( ! is_singular() ) { echo '</h1>'; }
 				else { echo '</div>'; } ?>
 			<div id="site-description" class="header__site-description"><?php bloginfo( 'description' ); ?></div>

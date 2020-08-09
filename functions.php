@@ -385,8 +385,8 @@ include ( get_stylesheet_directory() . '/options/urban_square_customizer-fronten
 
 add_action( 'wp_enqueue_scripts', 'urban_square_load_scripts' );
 function urban_square_load_scripts() {
-	wp_enqueue_style( 'urban-square-main-stylesheet', get_stylesheet_uri() );
 	wp_enqueue_style( 'urban-square-css3-extensions', get_template_directory_uri() . '/css3-extensions.css' );
+	wp_enqueue_style( 'urban-square-main-stylesheet', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'urban-square-font-icons', get_template_directory_uri() . '/css/all.css' );
 	wp_enqueue_script( 'urban-square-scripts', get_template_directory_uri() . '/scripts/urban-square-scripts.js', array( 'jquery' ), '1.0', true );
 	// Localize the script to use some of our Customizer variables

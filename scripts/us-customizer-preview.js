@@ -24,7 +24,7 @@
 	// Other colors
 	wp.customize( 'urban_square_header_footer_bgcolor', function( value ) {
 		value.bind( function( to ) {
-			$( '.wrapper .header-footer-bgcolor' ).css( 'background-color', to );
+			$( '.header-footer-bgcolor' ).css( 'background-color', to );
 		} );
 	} );
 

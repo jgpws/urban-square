@@ -13,6 +13,9 @@ Urban Square is a theme based on a BlankSlate core. With this theme, your templa
 
 == Changelog ==
 
+= 1.7.5 2021-11-13 =
+Bug fix: Fixed issue where JavaScript code was showing in the header (improper closing of body tag).
+
 = 1.7.4 2020-08-08 =
 Added support for the wp_body_open tag.
 

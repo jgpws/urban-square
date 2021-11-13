@@ -7,8 +7,8 @@
 <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
 </head>
-<body <?php body_class();
-wp_body_open(); ?>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 <div id="wrapper" class="wrapper" class="hfeed">
 <header id="header" role="banner" class="header header-footer-bgcolor">
 	<section id="branding" class="header__branding">

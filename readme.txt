@@ -4,7 +4,7 @@ Contributors: jgpws
 Tags: two-columns, custom-logo, custom-menu, featured-images, microformats, sticky-post, threaded-comments, translation-ready, custom-background, custom-header, custom-colors, right-sidebar
 Requires at least: 4.5
 Tested up to: 5.4
-Stable tag: 1.7.4
+Stable tag: 1.7.6
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -12,6 +12,9 @@ License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 Urban Square is a theme based on a BlankSlate core. With this theme, your template will no longer have to look like anyone else's. You can change the header image, logo, background image and colors behind the background, header/footer/sidebar, menus and widgets. Urban Square is high definition ready, providing retina.js on option for inline images and an image upload for @2x backgrounds. The Header Image section in the Customizer has additions that let you choose two display modes for header images: Responsive- where images stretch with the browser window and Repeating- for simple repeating textures/patterns. Version 1.6 is now compatible with Gutenberg/WP 5.0.
 
 == Changelog ==
+
+= 1.7.6 2021-03-30 =
+Updated the validation function for checkboxes.
 
 = 1.7.5 2021-11-13 =
 Bug fix: Fixed issue where JavaScript code was showing in the header (improper closing of body tag).

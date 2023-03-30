@@ -113,12 +113,8 @@ function u_s_sanitize_font_choices( $input ) {
 	}
 }
 
-function u_s_checkbox_sanitize( $input ) {
-	if ( $input == 1 ) {
-		return 1;
-	} else {
-		return '';
-	}
+function u_s_checkbox_sanitize( $checked ) {
+	return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
 
 function u_s_sanitize_footerhtml( $input ) {
